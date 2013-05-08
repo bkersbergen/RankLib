@@ -9,21 +9,16 @@ import ciir.umass.edu.learning.RankList;
  * 
  */
 public class WinnerTakesAllScorer extends MetricScorer {
-	protected int k = 10;
 
 	public WinnerTakesAllScorer() {
 
-	}
-
-	public void setK(int k) {
-		this.k = k;
 	}
 
 	/**
 	 * Score a RankList by given a score of 1.0 if they have the same most
 	 * relevant item, 0.0 otherwise (Winner take all !)
 	 * 
-	 * @param rl
+	 * @param predictedList
 	 *            a Ranked List of item
 	 * @return score for the model on this RankList, in this metric this is
 	 *         <ul>
@@ -32,12 +27,16 @@ public class WinnerTakesAllScorer extends MetricScorer {
 	 *         <li>0.0 otherwise</li>
 	 *         </ul>
 	 */
-	public double score(RankList rl) {
-		return rl.getCorrectRanking().get(0).getID().equals(rl.get(0).getID()) ? 1.0 : 0.0;
+	public double score(RankList predictedList) {
+		RankList correctList = predictedList.getCorrectRanking();
+		float correctLabel = correctList.get(0).getLabel();
+		float predictedLabel = predictedList.get(0).getLabel();
+
+		return (correctLabel == predictedLabel) ? 1.0 : 0.0;
 	}
 
 	public WinnerTakesAllScorer clone() {
-		return null;
+		return new WinnerTakesAllScorer();
 	}
 
 	public String name() {
