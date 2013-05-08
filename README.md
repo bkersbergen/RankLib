@@ -5,6 +5,12 @@ RankLib
 A Learning to Rank Library. Copied from: http://people.cs.umass.edu/~vdang/ranklib.html
 as version of 2.1
 
+To build it from source, simply run :
+<code>
+mvn assembly:single
+</code>
+
+
 Why Fork it ?
 -------------
 
