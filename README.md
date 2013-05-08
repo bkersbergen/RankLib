@@ -7,7 +7,7 @@ as version of 2.1
 
 To build it from source, simply run :
 <code>
-mvn assembly:single
+mvn install assembly:single
 </code>
 
 
