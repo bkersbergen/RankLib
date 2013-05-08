@@ -14,13 +14,11 @@ package ciir.umass.edu.learning.neuralnet;
  */
 public class LogiFunction implements TransferFunction {
 	
-	@Override
 	public double compute(double x)
 	{
 		return (double) (1.0 / (1.0 + Math.exp(-x)));
 	}
 	
-	@Override
 	public double computeDerivative(double x)
 	{
 		double output = compute(x);
