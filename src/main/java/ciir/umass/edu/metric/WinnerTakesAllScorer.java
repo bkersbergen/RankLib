@@ -31,7 +31,7 @@ public class WinnerTakesAllScorer extends MetricScorer {
 		RankList correctList = predictedList.getCorrectRanking();
 		float correctLabel = correctList.get(0).getLabel();
 		float predictedLabel = predictedList.get(0).getLabel();
-
+		
 		return (correctLabel == predictedLabel) ? 1.0 : 0.0;
 	}
 
